@@ -1,6 +1,6 @@
 var submitCustomerToKustomer = function(customer) {
   var bearerToken = 'Bearer ' + API_KEY;
-  var kustomerConfig = {
+  var kustomerPostConfig = {
     url: KUSTOMER_URL,
     method: 'post',
     data: customer,
@@ -8,13 +8,12 @@ var submitCustomerToKustomer = function(customer) {
       'Authorization': bearerToken
     }
   };
-  axios(kustomerConfig)
+  axios(kustomerPostConfig)
     .then(function(response) {
-      console.log(response);
+      console.log('Customer ' + customer.name + ' at email: ' + customer.emails[0].email + ' was created with the following response: ', response)
     })
     .catch(function(error) {
-      console.log(customer);
-      console.error(error);
+      console.log('Customer ' + customer.name + ' at email: ' + customer.emails[0].email + ' failed to enter the database, with the following error: ', error)
     });
 };
 
@@ -61,7 +60,6 @@ var convertObjectToCustomer = function(object) {
       customerTypeStr: object.customerType
     };
   }
-  console.log(customer);
   return customer;
 };
 
