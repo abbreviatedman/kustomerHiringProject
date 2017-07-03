@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.16.2/axios.min.js"></script>
+  <script src="constants.js"></script>
+  <script src="polyfills.js"></script>
+  <script src="app.js"></script>
+  </head>
+  <body>
+    <div style="text-align: center;">
+      <h3>Hello, Kustomer! If you want to load some CSV customer data into my account,</h3>
+      <h3>you can do so from your local machine using the button below.</h3>
+      <input
+        type="file"
+        id="csvFileInput"
+        onchange="handleFiles(this.files)"
+        accept=".csv"
+      >
+    </div>
+  </body>
+</html>
